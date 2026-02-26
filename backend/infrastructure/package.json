@@ -1,0 +1,16 @@
+{
+  "name": "votewatch-ng-infrastructure",
+  "version": "1.0.0",
+  "description": "VoteWatch NG — AWS CDK Infrastructure",
+  "main": "votewatch-stack.js",
+  "scripts": {
+    "cdk": "cdk"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.150.0",
+    "constructs": "^10.3.0"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.150.0"
+  }
+}

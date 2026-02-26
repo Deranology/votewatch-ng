@@ -1,0 +1,21 @@
+{
+  "name": "votewatch-ng",
+  "version": "1.0.0",
+  "description": "VoteWatch NG — Transparent Real-Time E-Voting Platform",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && aws s3 sync dist/ s3://votewatch-ng-frontend --delete && aws cloudfront create-invalidation --distribution-id YOUR_CF_ID --paths '/*'"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "aws-amplify": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0"
+  }
+}

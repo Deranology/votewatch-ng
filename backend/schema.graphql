@@ -1,0 +1,43 @@
+# VoteWatch NG - AppSync GraphQL Schema
+
+type VoteAggregate {
+  aggregateId: ID!
+  electionId: String!
+  candidateId: String!
+  voteCount: Int!
+  lastUpdated: String!
+}
+
+type VerificationResult {
+  isValid: Boolean!
+  message: String!
+  pollingUnitId: String
+  wardId: String
+  lgaId: String
+  stateId: String
+}
+
+type CastVoteResult {
+  success: Boolean!
+  message: String!
+  voteId: String
+  timestamp: String
+}
+
+type ElectionResults {
+  electionId: String!
+  totalVotes: Int!
+}
+
+type Query {
+  getNationalResults(electionId: String!): ElectionResults
+  getResultsByState(electionId: String!, stateId: String!): ElectionResults
+  getResultsByLGA(electionId: String!, lgaId: String!): ElectionResults
+  getResultsByWard(electionId: String!, wardId: String!): ElectionResults
+  getResultsByPollingUnit(electionId: String!, pollingUnitId: String!): ElectionResults
+}
+
+type Mutation {
+  verifyVoter(vin: String!, voterCardNumber: String!): VerificationResult
+  castVote(electionId: String!, candidateId: String!): CastVoteResult
+}
